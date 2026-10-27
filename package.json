@@ -1,0 +1,15 @@
+{
+  "name": "activation-poc",
+  "private": true,
+  "description": "POC de activación de servicios con Kafka, NestJS y React",
+  "scripts": {
+    "start": "docker compose up --build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}

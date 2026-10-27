@@ -1,0 +1,16 @@
+FROM node:20-alpine
+
+WORKDIR /app
+RUN corepack enable && corepack prepare pnpm@9.15.0 --activate
+
+COPY package.json pnpm-workspace.yaml tsconfig.base.json ./
+COPY libs ./libs
+COPY apps ./apps
+
+RUN pnpm install --no-frozen-lockfile
+
+ARG SERVICE
+ENV SERVICE=${SERVICE}
+WORKDIR /app/apps/${SERVICE}
+
+CMD ["pnpm", "start"]
